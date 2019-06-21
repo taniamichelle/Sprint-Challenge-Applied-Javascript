@@ -13,7 +13,7 @@ class TabLink {
     if (this.tabData = document.querySelectorAll('.all')) {
       // If `all` is true, select all cards regardless of their data attribute values
       this.cards = document.querySelectorAll('.card');
-    } else if (this.tabData != document.querySelectorAll('.all')) {
+    } else {
       // else if `all` is false, only select the cards with matching this.tabData values
       this.cards = document.querySelector(`.card[data-tab='${this.tabData}']`);
     }
@@ -26,7 +26,7 @@ class TabLink {
 
     // Add a click event that invokes this.selectTab
     this.tabElement.addEventListener('click', () => {
-      console.log('clickety', this.tabElement);
+      //console.log('clickety', this.tabElement);
       this.selectTab();
     });
   }
@@ -50,7 +50,7 @@ class TabLink {
 
     // Notice we are looping through the this.cards array and invoking selectCard() from the TabCard class. Just un-comment the code and study what is happening here.
     this.cards.forEach(card => card.selectCard());
-    console.log('clicked', this.cards);
+    //console.log('clicked', this.cards);
   }
 }
 
