@@ -12,7 +12,7 @@ class TabLink {
     // Check to see if this.tabData is equal to 'all'
     if (this.tabData === 'all') {
       // If `all` is true, select all cards regardless of their data attribute values
-      this.cards = document.querySelectorAll(`.card[data-tab='all']`);
+      this.cards = document.querySelectorAll('.card');
     } else if (this.tabData !== 'all') {
       // else if `all` is false, only select the cards with matching this.tabData values
       this.cards = document.querySelector(`.card[data-tab='${this.tabData}']`);
@@ -26,6 +26,7 @@ class TabLink {
 
     // Add a click event that invokes this.selectTab
     this.tabElement.addEventListener('click', () => {
+      console.log('clickety', this.tabElement);
       this.selectTab();
     });
   }
@@ -47,9 +48,9 @@ class TabLink {
     // Add a class of ".active-tab" to this.tabElement
     this.tabElement.classList.add('active-tab');
 
-    // Notice we are looping through the this.cards array and invoking selectCard() 
-    //from the TabCard class. Just un-comment the code and study what is happening here.
+    // Notice we are looping through the this.cards array and invoking selectCard() from the TabCard class. Just un-comment the code and study what is happening here.
     this.cards.forEach(card => card.selectCard());
+    console.log('clicked', this.cards);
   }
 }
 
@@ -57,6 +58,7 @@ class TabCard {
   constructor(cardElement) {
     // Assign this.cardElement to the cardElement DOM reference
     this.cardElement = cardElement;
+    //console.log(this.cardElement);
   }
   selectCard() {
     // Update the style of this.cardElement to display = "flex"
