@@ -8,12 +8,12 @@ class TabLink {
     this.tabData = this.tabElement.dataset.tab;
     //console.log(this.tabData);
 
-    // We need to find out if a user clicked 'all' cards or a specific category. Follow the instructions below to accomplish this task:    
+    // We need to find out if a user clicked 'all' cards or a specific category. 
     // Check to see if this.tabData is equal to 'all'
-    if (this.tabData === '.all') {
+    if (this.tabData === 'all') {
       // If `all` is true, select all cards regardless of their data attribute values
-      this.cards = document.querySelectorAll('.card');
-    } else if (this.tabData !== '.all') {
+      this.cards = document.querySelectorAll(`.card[data-tab='all']`);
+    } else if (this.tabData !== 'all') {
       // else if `all` is false, only select the cards with matching this.tabData values
       this.cards = document.querySelector(`.card[data-tab='${this.tabData}']`);
     }
@@ -42,7 +42,7 @@ class TabLink {
     const cards = document.querySelectorAll('.card');
 
     // Iterate through the NodeList setting the display style each one to 'none'
-    cards.forEach(card => card.classList.style.display = 'none');
+    cards.forEach(card => card.style.display = 'none');
 
     // Add a class of ".active-tab" to this.tabElement
     this.tabElement.classList.add('active-tab');
@@ -60,7 +60,7 @@ class TabCard {
   }
   selectCard() {
     // Update the style of this.cardElement to display = "flex"
-    this.cardElement.classList.style.display = 'flex';
+    this.cardElement.style.display = 'flex';
   }
 }
 
