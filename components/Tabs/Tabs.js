@@ -10,10 +10,10 @@ class TabLink {
 
     // We need to find out if a user clicked 'all' cards or a specific category. 
     // Check to see if this.tabData is equal to 'all'
-    if (this.tabData === 'all') {
+    if (this.tabData = document.querySelectorAll('.all')) {
       // If `all` is true, select all cards regardless of their data attribute values
       this.cards = document.querySelectorAll('.card');
-    } else if (this.tabData !== 'all') {
+    } else if (this.tabData != document.querySelectorAll('.all')) {
       // else if `all` is false, only select the cards with matching this.tabData values
       this.cards = document.querySelector(`.card[data-tab='${this.tabData}']`);
     }
